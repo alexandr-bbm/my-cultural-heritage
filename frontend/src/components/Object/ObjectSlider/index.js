@@ -11,7 +11,8 @@ export default class ObjectSlider extends React.Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            centerMode: true
+            centerMode: true,
+            arrows: true
         };
         const images = [
             'http://www.tomsk.ru09.ru/foto/albums/tomsk/userpics/16375/normal_img_2841.jpg',

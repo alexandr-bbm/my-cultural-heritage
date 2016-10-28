@@ -60,7 +60,7 @@ export default class App extends React.Component {
         return (
             <div className="app">
                 <AppBar
-                    title="Мое культурное наследие"
+                    title="Мое культурное наследие | Томск"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
 
@@ -76,13 +76,6 @@ export default class App extends React.Component {
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
                 />
-
-                <RaisedButton
-                    label="Тест для модалки"
-                    data-id={1}
-                    onTouchTap={this.handleOpenObject}
-                />
-                <ObjectView object={MOCK_OBJECTS[0]}/>
             </div>
         )
     }
