@@ -2,28 +2,17 @@ import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
-import ModalObject from 'components/Modal/Object';
+import ModalObject from 'components/Modal';
 import Map from 'components/Map';
+import MOCK_OBJECTS from 'api/mock';
+import ObjectView from 'components/Object';
 
 injectTapEventPlugin();
 
 export default class App extends React.Component {
 
     componentDidMount() {
-        this.allObjects = [
-            {
-                id: '1',
-                title : 'Деревянный дом',
-                coords : [56.479658, 85.070571],
-                address : 'г. Томск ул. Никитина 10'
-            },
-            {
-                id: '2',
-                title : 'Деревянный дом 2',
-                coords : [56.48658, 85.090571],
-                address : 'г. Томск ул. Никитина 10'
-            }
-        ];
+        this.allObjects = MOCK_OBJECTS;
         this.setState({
             objects: this.allObjects,
         })
@@ -40,7 +29,7 @@ export default class App extends React.Component {
 
     handleOpenObject = (e) => {
         const targetId = e.currentTarget.getAttribute('data-id');
-        const targetObject = this.allObjects.filter((obj) => targetId === obj.id)[0];
+        const targetObject = this.allObjects.filter((obj) => targetId == obj.id)[0];
         if (targetObject) {
             this.setState({
                 objectModal: {
@@ -79,6 +68,7 @@ export default class App extends React.Component {
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
                 />
+                <ObjectView object={MOCK_OBJECTS[0]} />
             </div>
         )
     }
