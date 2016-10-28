@@ -17,10 +17,10 @@ export default class ObjectSlider extends React.Component {
             arrows: true,
             variableWidth: false
         };
-        const {photos} = this.props;
+        const {photos, addProposeToString} = this.props;
         return (
             <div className="object-slider">
-                {!photos.length && 'Фотографий еще не добавлено'}
+                {!photos.length && addProposeToString('Фотографий еще не добавлено')}
                 {!!photos.length &&
                     <Slider {...settings}>
                         {photos.map((url, key) => (

@@ -10,7 +10,7 @@ class Map extends React.Component {
             this.myMap = new ymaps.Map('map', {
                 center: [56.478639, 84.949383],
                 zoom: 13,
-                maxZoom: 14,
+                maxZoom: 15,
                 controls: ['zoomControl']
             });
             if (nextProps.objects.length) {
