@@ -34,7 +34,10 @@ export default class ObjectView extends React.Component {
         return (
             <div className="object-view">
                 <h4>Галлерея</h4>
-                <ObjectSlider photos={object.photos} />
+                <ObjectSlider
+                    photos={object.photos}
+                    addProposeToString={this.addProposeToString}
+                />
                 <h4 className="object-view__title">Описание объекта</h4>
                 <p>
                     {object.description ? object.description : this.addProposeToString('Описания еще не добавлено.')}
