@@ -42,7 +42,7 @@ class Map extends React.Component {
 
     renderObjects(nextProps) {
         let clusterer = new ymaps.Clusterer({
-            preset: 'islands#invertedBrownClusterIcons',
+            preset: 'islands#invertedGrayClusterIcons',
             groupByCoordinates: false,
             clusterDisableClickZoom: true,
             clusterHideIconOnBalloonOpen: false,
