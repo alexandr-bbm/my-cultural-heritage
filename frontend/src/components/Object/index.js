@@ -33,6 +33,7 @@ export default class ObjectView extends React.Component {
         const { object } = this.props;
         return (
             <div className="object-view">
+                <h5>{object.title}</h5>
                 <h5>Галлерея</h5>
                 <ObjectSlider
                     photos={object.photos}

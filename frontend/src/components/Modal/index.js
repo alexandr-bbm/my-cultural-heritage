@@ -39,7 +39,7 @@ class ModalObject extends React.Component {
             />
         ];
         const modalHeader = <div>
-            <h5 className="no-margin">{object.title}</h5>
+            <h5 className="no-margin _truncate">{object.title}</h5>
             {object && <RatingBlock
                 onRatingChange={this.props.onRatingChange}
                 objectId={object.id}
