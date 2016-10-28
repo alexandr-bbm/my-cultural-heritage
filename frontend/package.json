@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "material-ui": "^0.16.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "reset-css": "^2.0.2011012603"

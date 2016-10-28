@@ -1,5 +1,4 @@
 import React from 'react';
-import Map from '../components/Map';
 
 export default class App extends React.Component {
     state = {
@@ -9,7 +8,11 @@ export default class App extends React.Component {
     render () {
         return (
             <div className="app">
-                <h3>My react boilerplate</h3>
+                <AppBar
+                    title="Мое культурное наследие"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                />
+
                 <Map />
             </div>
         )
