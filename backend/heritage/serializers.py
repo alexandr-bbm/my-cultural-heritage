@@ -25,7 +25,7 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
         return obj.tags.names()
 
     def get_rating(self, obj):
-        return {'avg': obj.avg, 'count': obj.count}
+        return {'avg': obj.avg or 0, 'count': obj.count}
 
 
 class RatingSerializer(serializers.ModelSerializer):
