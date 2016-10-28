@@ -20,7 +20,7 @@ export default class App extends React.Component {
     }
 
     state = {
-        filter: '',
+        filter: 'all',
         objects: [],
         objectModal: {
             open: false,

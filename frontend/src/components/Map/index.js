@@ -4,21 +4,17 @@ import React, {
 import './style.scss';
 
 class Map extends React.Component {
-    componentDidMount() {
-        this.initMap();
-    }
 
-    initMap() {
+    initMap(nextProps) {
         ymaps.ready(()=> {
             this.myMap = new ymaps.Map('map', {
                 center: [56.491539, 84.988026],
                 zoom: 13,
                 maxZoom: 14,
                 controls: ['zoomControl']
-
             });
-            if (this.props.objects.length) {
-                this.renderObjects();
+            if (nextProps.objects.length) {
+                this.renderObjects(nextProps);
             }
         });
     }
@@ -54,7 +50,16 @@ class Map extends React.Component {
         };
     }
 
-    renderObjects() {
+    getObjects = (nextProps)=> {
+        if(nextProps.filter == "all") {
+            return nextProps.objects
+        }
+        return nextProps.objects.filter((elem)=>    {
+            return (elem.tags.indexOf(nextProps.filter) != -1)
+        })
+    };
+
+    renderObjects(nextProps) {
         let clusterer = new ymaps.Clusterer({
             preset: 'islands#invertedBrownClusterIcons',
             groupByCoordinates: false,
@@ -63,15 +68,11 @@ class Map extends React.Component {
             openBalloonOnClick: false,
             geoObjectHideIconOnBalloonOpen: false
         });
-        let objects = this.props.objects,
+        let objects = this.getObjects(nextProps),
             geoObjects = [];
         for (var i = 0, len = objects.length; i < len; i++) {
             let id = objects[i].id;
             geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
-            // //hover
-            // geoObjects[i].events.add('mouseenter', (e) => {
-            //     this.handleObjectHover(e);
-            // });
             //click
             geoObjects[i].events.add('click', (e) => {
                 this.handleMarkerClick(id);
@@ -81,9 +82,11 @@ class Map extends React.Component {
         this.myMap.geoObjects.add(clusterer);
     }
 
-    componentWillUpdate() {
-        this.myMap.destroy();
-        this.initMap();
+    componentWillUpdate(nextProps) {
+        if(this.myMap) {
+            this.myMap.destroy();
+        }
+        this.initMap(nextProps);
     }
 
     render() {
