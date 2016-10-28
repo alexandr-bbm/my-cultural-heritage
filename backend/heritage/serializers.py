@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from heritage.models import HeritageObject, Photo
+from heritage.models import HeritageObject, Photo, Rating
 
 
 class PhotoSerializer(serializers.ModelSerializer):
@@ -17,7 +17,13 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeritageObject
-        fields = ('id', 'title', 'coords', 'address', 'description', 'photos')
+        fields = ('id', 'title', 'coords', 'address', 'description', 'photos', 'rating')
 
     def get_coords(self, obj):
         return [obj.lon, obj.lat]
+
+
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = '__all__'
