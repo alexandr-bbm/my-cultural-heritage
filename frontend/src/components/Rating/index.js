@@ -2,16 +2,44 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
-import * as reactRating from 'react-rating';
+import Rating from 'react-rating';
+import ToggleStarBorder from 'material-ui/svg-icons/toggle/star-border';
+import ToggleStar from 'material-ui/svg-icons/toggle/star';
+import {cyan500} from 'material-ui/styles/colors';
+import './style.scss';
 
-class Rating extends Component {
+class RatingEmpty extends Component {
     render() {
         return (
-            <div>
-                <Rating placeholderRate={3}/>
+            <div className="ratings__item">
+                <ToggleStarBorder color={cyan500}/>
+            </div>
+        )
+    }
+}
+class RatingFull extends Component {
+    render() {
+        return (
+            <div className="ratings__item">
+                <ToggleStar color={cyan500}/>
+            </div>
+        )
+    }
+}
+
+class RatingBlock extends Component {
+    render() {
+        return (
+            <div className="ratings">
+                <Rating
+                    empty={<RatingEmpty/>}
+                    placeholder ={<RatingEmpty/>}
+                    full={<RatingFull/>}
+                    onChange={this.props.onRatingChange}
+                    placeholderRate={3}/>
             </div>
         );
     }
 }
 
-export default Rating;
+export default RatingBlock;

@@ -16,7 +16,11 @@ class ModalObject extends React.Component {
         object: PropTypes.object
     };
 
-    render () {
+    onRatingChange = (e)=> {
+        console.log(e);
+    };
+
+    render() {
         const {open, onClose, object} = this.props;
         const actions = [
             <FlatButton
