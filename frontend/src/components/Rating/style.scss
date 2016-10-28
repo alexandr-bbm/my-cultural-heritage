@@ -1,5 +1,8 @@
 .ratings {
     margin-top: 20px;
+    span {
+        vertical-align: middle;
+    }
     &__item {
         width: 30px;
         height: 30px;

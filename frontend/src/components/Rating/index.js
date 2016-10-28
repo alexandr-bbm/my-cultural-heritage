@@ -31,6 +31,7 @@ class RatingBlock extends Component {
     render() {
         return (
             <div className="ratings">
+                <span> Оцените этот объект: </span>
                 <Rating
                     empty={<RatingEmpty/>}
                     placeholder ={<RatingEmpty/>}

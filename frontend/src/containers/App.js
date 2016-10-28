@@ -1,11 +1,8 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import ModalObject from 'components/Modal';
 import Map from 'components/Map';
-import MOCK_OBJECTS from 'api/mock';
-import ObjectView from 'components/Object';
 import Filters from 'components/Filters';
 import getObjects from 'api/getObjects';
 
@@ -15,7 +12,7 @@ export default class App extends React.Component {
 
     componentDidMount() {
         getObjects().then((response)=> {
-            this.allObjects = response.data;
+            this.allObjects = response;
             this.setState({
                 objects: this.allObjects,
             })
