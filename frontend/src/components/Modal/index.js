@@ -3,10 +3,11 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import ObjectView from 'components/Object';
 import RatingBlock from 'components/Rating';
+import './style.scss';
 
 const customContentStyle = {
     width: '100%',
-    maxWidth: 'none',
+    maxWidth: '768px',
 };
 
 class ModalObject extends React.Component {
@@ -39,6 +40,7 @@ class ModalObject extends React.Component {
         </div>;
         return (
             <Dialog
+                className="modal"
                 actions={actions}
                 modal={false}
                 open={open}
