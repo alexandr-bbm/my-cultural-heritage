@@ -3,7 +3,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import ObjectView from 'components/Object';
 
-
 const customContentStyle = {
     width: '100%',
     maxWidth: 'none',
@@ -37,8 +36,10 @@ class ModalObject extends React.Component {
                 onRequestClose={onClose}
                 contentStyle={customContentStyle}
                 title={object.title}
-                autoScrollBodyContent={true}>
-                <ObjectView object={object}/>
+                autoScrollBodyContent={true}
+                bodyStyle={{ overflowY: 'hidden'}}
+            >
+                <ObjectView object={object} />
             </Dialog>
         )
     }
