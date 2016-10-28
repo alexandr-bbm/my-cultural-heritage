@@ -7,12 +7,13 @@ class Map extends React.Component {
     componentDidMount() {
         this.initMap();
     }
+
     initMap() {
         ymaps.ready(()=> {
             this.myMap = new ymaps.Map('map', {
                 center: [56.491539, 84.988026],
                 zoom: 13,
-                maxZoom:14,
+                maxZoom: 14,
                 controls: ['zoomControl']
 
             });
@@ -30,21 +31,21 @@ class Map extends React.Component {
         console.log(e.get('target'));
     }
 
-        getPointData() {
-            /**
-             * Функция возвращает объект, содержащий данные метки.
-             * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
-             * Поле balloonContentBody - источник данных для контента балуна.
-             * Оба поля поддерживают HTML-разметку.
-             * Список полей данных, которые используют стандартные макеты содержимого иконки метки
-             * и балуна геообъектов, можно посмотреть в документации.
-             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-             */
-            return {
-                balloonContentBody: '',
-                clusterCaption: '<p data-tip="hello world">Tooltip</p>'
-            };
-        }
+    getPointData() {
+        /**
+         * Функция возвращает объект, содержащий данные метки.
+         * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
+         * Поле balloonContentBody - источник данных для контента балуна.
+         * Оба поля поддерживают HTML-разметку.
+         * Список полей данных, которые используют стандартные макеты содержимого иконки метки
+         * и балуна геообъектов, можно посмотреть в документации.
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
+         */
+        return {
+            balloonContentBody: '',
+            clusterCaption: '<p data-tip="hello world">Tooltip</p>'
+        };
+    }
 
     getPointOptions() {
         return {
@@ -65,7 +66,6 @@ class Map extends React.Component {
         let objects = this.props.objects,
             geoObjects = [];
         for (var i = 0, len = objects.length; i < len; i++) {
-            console.log(objects[i]);
             let id = objects[i].id;
             geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
             // //hover

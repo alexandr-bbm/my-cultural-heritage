@@ -1,8 +1,10 @@
 Django==1.10.2
 django-cors-headers==1.2.2
 django-extensions==1.7.4
+django-taggit==0.21.3
 djangorestframework==3.5.1
 ipython==5.1.0
 Pillow==3.4.2
 requests==2.11.1
+Unidecode==0.4.19
 whitenoise==3.2.2
