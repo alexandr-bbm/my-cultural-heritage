@@ -10,7 +10,6 @@ module.exports = {
     entry: './src/index.js',
 
     output: {
-        publicPath: '/freecodecamp.tic-tac-toe/build/',
         path: path.join(__dirname, './build/'),
         filename: '[name].min.js'
     },
