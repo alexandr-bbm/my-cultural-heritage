@@ -8,7 +8,9 @@ class PhotoInline(admin.StackedInline):
 
 class HeritageObjectAdmin(admin.ModelAdmin):
     list_display = ['name', 'address_1', 'address_2', 'act_name', 'lat', 'lon', 'rating']
+    search_fields = ['name', 'address_1', 'address_2']
     inlines = [PhotoInline]
+
 
 admin.site.register(HeritageObject, HeritageObjectAdmin)
 admin.site.register((Photo, Rating))
