@@ -23,30 +23,11 @@ class Map extends React.Component {
         this.props.onObjectClick(id);
     }
 
-    handleObjectHover(e) {
-        console.log(e.get('target'));
-    }
-
-    getPointData() {
-        /**
-         * Функция возвращает объект, содержащий данные метки.
-         * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
-         * Поле balloonContentBody - источник данных для контента балуна.
-         * Оба поля поддерживают HTML-разметку.
-         * Список полей данных, которые используют стандартные макеты содержимого иконки метки
-         * и балуна геообъектов, можно посмотреть в документации.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-         */
-        return {
-            balloonContentBody: '',
-            clusterCaption: '<p data-tip="hello world">Tooltip</p>'
-        };
-    }
-
     getPointOptions() {
         return {
-            preset: 'islands#lightBlueCircleDotIcon',
-            iconImageSize: '200'
+            iconLayout: 'default#image',
+            iconImageHref: 'build/assets/marker.svg',
+            iconImageSize: [30, 30]
         };
     }
 
@@ -55,8 +36,6 @@ class Map extends React.Component {
             return nextProps.objects
         }
         return nextProps.objects.filter((elem)=> {
-            console.log(elem.tags);
-            console.log(nextProps.filter.toLowerCase());
             return (elem.tags.indexOf(nextProps.filter.toLowerCase()) != -1)
         })
     };
@@ -74,7 +53,7 @@ class Map extends React.Component {
             geoObjects = [];
         for (var i = 0, len = objects.length; i < len; i++) {
             let id = objects[i].id;
-            geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
+            geoObjects[i] = new ymaps.Placemark(objects[i].coords, {}, this.getPointOptions());
             //click
             geoObjects[i].events.add('click', (e) => {
                 this.handleMarkerClick(id);
