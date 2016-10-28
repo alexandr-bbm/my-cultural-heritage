@@ -3,6 +3,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import ObjectView from 'components/Object';
 import RatingBlock from 'components/Rating';
+import getProposeHref from 'services/proposeHref';
+import RaisedButton from 'material-ui/RaisedButton';
 import './style.scss';
 
 const customContentStyle = {
@@ -25,6 +27,10 @@ class ModalObject extends React.Component {
     render() {
         const {open, onClose, object} = this.props;
         const actions = [
+            <RaisedButton
+                label="Я знаю больше"
+                href={getProposeHref(object)}
+                style={{marginRight : 10}}/>,
             <FlatButton
                 label="Закрыть"
                 onTouchTap={onClose}

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import ObjectSlider from './ObjectSlider';
 import Chip from 'material-ui/Chip';
 import RatingBlock from 'components/Rating';
-import RaisedButton from 'material-ui/RaisedButton';
+import getProposeHref from 'services/proposeHref';
 import './style.scss';
 
 const customContentStyle = {
@@ -17,6 +17,18 @@ export default class ObjectView extends React.Component {
         object: PropTypes.object
     };
 
+    componentWillMount () {
+        const { object } = this.props;
+        this.proposeInfoHref = getProposeHref(object);
+        this.addProposeToString = (str) => {
+            return (
+                <span className="mdl-typography--body-1">
+                    {str} <a href={this.proposeInfoHref}>Предложить информацию</a>
+                </span>
+            )
+        }
+    }
+
     render () {
         const { object } = this.props;
         return (
@@ -25,21 +37,18 @@ export default class ObjectView extends React.Component {
                 <ObjectSlider photos={object.photos} />
                 <h4 className="object-view__title">Описание объекта</h4>
                 <p>
-                    {object.description ? object.description : 'Описания еще не добавлено.'}
+                    {object.description ? object.description : this.addProposeToString('Описания еще не добавлено.')}
                 </p>
 
                 <h4>Тэги</h4>
                 <div>
-                    {object.tags.map((tag) => (
+                    {!!object.tags.length && object.tags.map((tag) => (
                         <Chip style={{margin: 4}} >
                             { tag }
                         </Chip>
                     ))}
+                    {!object.tags.length && this.addProposeToString('Теги еще не добавлены')}
                 </div>
-                <RaisedButton
-                    label="Я знаю больше"
-                    href={"mailto:headfire94work@gmail.com?subject=Описание для (" + object.id + ") " +object.title}
-                    style={{marginBottom : 10, marginTop: 10}}/>
             </div>
         )
     }
