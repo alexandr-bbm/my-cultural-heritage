@@ -23,7 +23,7 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
         return [request.build_absolute_uri(photo.photo.url) for photo in obj.photos.all()]
 
     def get_tags(self, obj):
-        return obj.tags.names()
+        return [item.tag.name for item in obj.tagged_items.all()]
 
     def get_rating(self, obj):
         return {'avg': obj.avg or 0, 'count': obj.count}
