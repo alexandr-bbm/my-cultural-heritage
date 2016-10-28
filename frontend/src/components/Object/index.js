@@ -39,7 +39,7 @@ export default class ObjectView extends React.Component {
                 <RaisedButton
                     label="Я знаю больше"
                     href={"mailto:headfire94work@gmail.com?subject=Описание для (" + object.id + ") " +object.title}
-                    style={{marginBottom : 10}}/>
+                    style={{marginBottom : 10, marginTop: 10}}/>
             </div>
         )
     }
