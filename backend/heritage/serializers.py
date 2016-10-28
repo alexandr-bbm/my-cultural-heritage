@@ -19,7 +19,8 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
         return [obj.lon, obj.lat]
 
     def get_photos(self, obj):
-        return [photo.photo.url for photo in obj.photos.all()]
+        request = self.context['request']
+        return [request.build_absolute_uri(photo.photo.url) for photo in obj.photos.all()]
 
     def get_tags(self, obj):
         return obj.tags.names()
