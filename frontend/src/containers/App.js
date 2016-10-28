@@ -78,7 +78,8 @@ export default class App extends React.Component {
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
                 />
-                <Map objects={this.state.object}/>
+
+                <Map objects={this.state.objects}/>
             </div>
         )
     }
