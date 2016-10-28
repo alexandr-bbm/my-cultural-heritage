@@ -24,10 +24,6 @@ class HeritageObject(models.Model):
     def __str__(self):
         return self.name
 
-    @property
-    def rating(self):
-        return self.rating_set.aggregate(avg=models.Avg('score'), count=models.Count('score'))
-
 
 def object_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<random>

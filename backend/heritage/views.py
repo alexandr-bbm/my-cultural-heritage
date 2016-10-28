@@ -1,3 +1,4 @@
+from django.db.models import Avg, Count
 from rest_framework import viewsets, mixins
 
 from heritage.models import HeritageObject, Rating
@@ -5,7 +6,8 @@ from heritage.serializers import HeritageObjectSerializer, RatingSerializer
 
 
 class HeritageObjectViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = HeritageObject.objects.exclude(lat='')
+    queryset = HeritageObject.objects.exclude(lat='').annotate(
+        avg=Avg('rating__score'), count=Count('rating')).prefetch_related('photos')
     serializer_class = HeritageObjectSerializer
 
 
