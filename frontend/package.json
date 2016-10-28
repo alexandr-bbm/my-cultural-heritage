@@ -17,7 +17,8 @@
     "react-slick": "^0.14.5",
     "react-tap-event-plugin": "^1.0.0",
     "reset-css": "^2.0.2011012603",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "url-loader": "^0.5.7"
   },
   "devDependencies": {
     "webpack": "^1.13.1",

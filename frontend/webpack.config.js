@@ -36,8 +36,9 @@ module.exports = {
                     'css-loader!postcss!sass-loader?outputStyle=expanded'
                 )
             },
-            { test: /\.(ttf|eot|woff|svg)/,
-                loader: 'file-loader'
+            {
+                test: /\.(ttf|eot|woff|svg|png|jpg|gif)/,
+                loader: 'url?limit=8000&name=./assets/[name].[ext]'
             },
             {
                 test: /\.css$/,
