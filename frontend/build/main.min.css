@@ -1039,12 +1039,4 @@ ul, ol {
   margin: 0 !important;
 }
 
-.modal > div > div {
-  transform: translate(0, 0) !important;
-}
-
-.modal > div > div > div > div:nth-child(2) {
-  max-height: calc(100vh - 240px) !important;
-}
-
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLm1pbi5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/
