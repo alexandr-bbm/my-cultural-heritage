@@ -1,4 +1,5 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
 
 export default class App extends React.Component {
     state = {
@@ -8,7 +9,10 @@ export default class App extends React.Component {
     render () {
         return (
             <div className="app">
-                <h3>My react boilerplate</h3>
+                <AppBar
+                    title="Мое культурное наследие"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                />
             </div>
         )
     }
