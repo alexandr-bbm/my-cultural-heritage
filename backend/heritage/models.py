@@ -26,7 +26,7 @@ class HeritageObject(models.Model):
 
     @property
     def rating(self):
-        return self.rating_set.aggregate(avg=models.Avg('score')).get('avg', 0)
+        return self.rating_set.aggregate(avg=models.Avg('score'), count=models.Count('score'))
 
 
 def object_directory_path(instance, filename):
