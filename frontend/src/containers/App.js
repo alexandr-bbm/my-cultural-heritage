@@ -57,16 +57,18 @@ export default class App extends React.Component {
                     title="Мое культурное наследие"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-                <Map />
-                <RaisedButton
-                    label="Тест для модалки"
-                    data-id={1}
-                    onTouchTap={this.handleOpenObject}
-                />
+
                 <ModalObject
                     open={objectModal.open}
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
+                />
+
+                <Map objects={this.state.objects}/>
+                <RaisedButton
+                    label="Тест для модалки"
+                    data-id={1}
+                    onTouchTap={this.handleOpenObject}
                 />
                 <ObjectView object={MOCK_OBJECTS[0]} />
             </div>
