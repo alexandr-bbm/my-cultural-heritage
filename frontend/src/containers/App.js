@@ -59,6 +59,7 @@ export default class App extends React.Component {
         const {objectModal} = this.state;
         return (
             <div className="app">
+
                 <AppBar
                     title="Мое культурное наследие | Томск"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"

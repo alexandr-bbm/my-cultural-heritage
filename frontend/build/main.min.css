@@ -262,19 +262,16 @@
   color: black;
   opacity: 0.75;
 }
-.object-slider__image {
-  border: 5px solid #FFF;
-  display: block;
-  margin: auto;
-  height: 200px;
+.rating {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
 }
 .object-view {
   max-width: 600px;
   margin: 20px auto;
-}
-
-.object-view__description {
-  margin-top: 50px;
 }
 .map {
   width: 100%;
