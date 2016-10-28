@@ -2,16 +2,18 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
-import * as reactRating from 'react-rating';
+import Rating from 'react-rating';
 
-class Rating extends Component {
+class RatingBlock extends Component {
     render() {
         return (
             <div>
-                <Rating placeholderRate={3}/>
+                <Rating
+                    onChange={this.props.onRatingChange}
+                    placeholderRate={3}/>
             </div>
         );
     }
 }
 
-export default Rating;
+export default RatingBlock;

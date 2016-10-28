@@ -17,6 +17,7 @@ export default class ObjectView extends React.Component {
         const { object } = this.props;
         return (
             <div>
+
                 <ObjectSlider />
                 {object.description}
             </div>
