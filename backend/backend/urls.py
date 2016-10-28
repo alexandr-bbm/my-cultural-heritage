@@ -28,5 +28,5 @@ router.register(r'rating', RatingViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
-    url(r'^', TemplateView.as_view(template_name='index.html'))
+    url(r'^$', TemplateView.as_view(template_name='index.html'))
 ]
