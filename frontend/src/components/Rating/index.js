@@ -5,14 +5,14 @@ import React, {
 import Rating from 'react-rating';
 import ToggleStarBorder from 'material-ui/svg-icons/toggle/star-border';
 import ToggleStar from 'material-ui/svg-icons/toggle/star';
-import ToggleStarHalf from 'material-ui/svg-icons/toggle/star-half';
+import {cyan500} from 'material-ui/styles/colors';
 import './style.scss';
 
 class RatingEmpty extends Component {
     render() {
         return (
-            <div className="rating">
-                <ToggleStarBorder />
+            <div className="ratings__item">
+                <ToggleStarBorder color={cyan500}/>
             </div>
         )
     }
@@ -20,8 +20,8 @@ class RatingEmpty extends Component {
 class RatingFull extends Component {
     render() {
         return (
-            <div className="rating">
-                <ToggleStar />
+            <div className="ratings__item">
+                <ToggleStar color={cyan500}/>
             </div>
         )
     }
@@ -30,7 +30,7 @@ class RatingFull extends Component {
 class RatingBlock extends Component {
     render() {
         return (
-            <div>
+            <div className="ratings">
                 <Rating
                     empty={<RatingEmpty/>}
                     placeholder ={<RatingEmpty/>}
