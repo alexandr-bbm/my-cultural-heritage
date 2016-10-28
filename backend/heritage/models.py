@@ -18,6 +18,10 @@ class HeritageObject(models.Model):
     def __unicode__(self):
         return self.name
 
+    @property
+    def rating(self):
+        return self.rating_set.aggregate(avg=models.Avg('score')).get('avg', 0)
+
 
 def object_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<random>
@@ -29,3 +33,8 @@ def object_directory_path(instance, filename):
 class Photo(models.Model):
     object = models.ForeignKey(HeritageObject, related_name='photos')
     photo = models.ImageField(upload_to=object_directory_path)
+
+
+class Rating(models.Model):
+    object = models.ForeignKey(HeritageObject)
+    score = models.IntegerField()
