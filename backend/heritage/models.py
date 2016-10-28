@@ -4,6 +4,7 @@ import random
 import string
 
 from django.db import models
+from taggit.managers import TaggableManager
 
 
 class HeritageObject(models.Model):
@@ -15,6 +16,8 @@ class HeritageObject(models.Model):
     lon = models.TextField(blank=True)
     description = models.TextField(blank=True)
 
+    tags = TaggableManager()
+
     def __unicode__(self):
         return self.name
 
@@ -23,7 +26,7 @@ class HeritageObject(models.Model):
 
     @property
     def rating(self):
-        return self.rating_set.aggregate(avg=models.Avg('score')).get('avg', 0)
+        return self.rating_set.aggregate(avg=models.Avg('score'), count=models.Count('score'))
 
 
 def object_directory_path(instance, filename):
