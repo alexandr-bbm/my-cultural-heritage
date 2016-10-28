@@ -82,8 +82,11 @@ class Map extends React.Component {
     }
 
     componentWillUpdate() {
-        this.myMap.destroy();
-        this.initMap();
+        ymaps.ready(()=> {
+            this.myMap.destroy();
+            this.initMap();
+        });
+
     }
 
     render() {
