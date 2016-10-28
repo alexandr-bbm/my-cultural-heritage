@@ -63,6 +63,10 @@ class RatingBlock extends Component {
 
     render () {
         const hint = this.state.readonly ? 'Спасибо за вашу оценку!' : ' Оцените этот объект: ';
+        let ratingAvg = this.state.rating.avg;
+        if ( null == ratingAvg ) {
+            ratingAvg = 0;
+        }
         return (
             <div className="ratings">
                 <div>{ hint }</div>
@@ -75,7 +79,7 @@ class RatingBlock extends Component {
                     readonly={this.state.readonly}
                 />
                 &nbsp;
-                { this.state.rating.avg.toFixed(1) }
+                { ratingAvg.toFixed(1) }
                 &nbsp;
                 ({ this.state.rating.count })
             </div>
