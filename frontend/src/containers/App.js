@@ -1,4 +1,8 @@
 import React from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import AppBar from 'material-ui/AppBar';
+
+injectTapEventPlugin();
 
 export default class App extends React.Component {
     state = {
