@@ -21,7 +21,7 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
         return [photo.photo.url for photo in obj.photos.all()]
 
     def get_tags(self, obj):
-        return obj.tags.values('name', 'slug')
+        return obj.tags.names()
 
 
 class RatingSerializer(serializers.ModelSerializer):
