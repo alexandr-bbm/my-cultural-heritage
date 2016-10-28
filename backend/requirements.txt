@@ -1,4 +1,5 @@
 Django==1.10.2
+django-cors-headers==1.2.2
 django-extensions==1.7.4
 djangorestframework==3.5.1
 ipython==5.1.0

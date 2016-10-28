@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "json-loader": "^0.5.4",
+    "material-design-lite": "^1.2.1",
     "material-ui": "^0.16.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
