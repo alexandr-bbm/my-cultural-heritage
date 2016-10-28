@@ -27,19 +27,19 @@ class Filters extends React.Component {
         return (
             <div><Tabs className="tabs">
                 <Tab className="tab" value="all" label="Все" onActive={this.handleActive}/>
-                <Tab className="tab" value="wood" label="Деревянное зодчество" onActive={this.handleActive}/>
-                <Tab className="tab" value="monuments" label="Памятники" onActive={this.handleActive}/>
-                <Tab className="tab" value="temples" label="Монастыри и храмы" onActive={this.handleActive}/>
-                <Tab className="tab" value="study" label="Учебные заведения" onActive={this.handleActive}/>
+                <Tab className="tab" value="деревянные" label="Деревянное зодчество" onActive={this.handleActive}/>
+                <Tab className="tab" value="памятники" label="Памятники" onActive={this.handleActive}/>
+                <Tab className="tab" value="храмы и монастыри" label="Монастыри и храмы" onActive={this.handleActive}/>
+                <Tab className="tab" value="учебные заведения" label="Учебные заведения" onActive={this.handleActive}/>
             </Tabs>
-                <Card>
+                <Card className="mobile-tabs">
                     <CardHeader
                         title="Фильтры"
                         actAsExpander={true}
                         showExpandableButton={true}
                     />
                     <CardText expandable={true}>
-                        <div className="mobile-tabs">
+                        <div >
                             <RadioButtonGroup name="group" defaultSelected="all" onChange={this.handleRadioChange}>
                                 <RadioButton
                                     value="all"
@@ -47,21 +47,21 @@ class Filters extends React.Component {
                                     style={styles.radioButton}
                                 />
                                 <RadioButton
-                                    value="wood"
+                                    value="деревянные"
                                     label="Деревянное зодчество"
                                     style={styles.radioButton}
 
                                 />
                                 <RadioButton
-                                    value="monuments" label="Памятники"
+                                    value="памятники" label="Памятники"
                                     style={styles.radioButton}
                                 />
                                 <RadioButton
-                                    value="temples" label="Монастыри и храмы"
+                                    value="храмы и монастыри" label="Монастыри и храмы"
                                     style={styles.radioButton}
                                 />
                                 <RadioButton
-                                    value="study" label="Учебные заведения"
+                                    value="учебные заведения" label="Учебные заведения"
                                     style={styles.radioButton}
                                 />
 

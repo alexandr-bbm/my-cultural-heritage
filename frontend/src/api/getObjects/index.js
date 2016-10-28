@@ -6,6 +6,7 @@ export default function getObjects() {
             url: 'http://heritage.pythonanywhere.com/objects/?format=json',
             type: 'GET',
             success: function (data) {
+                console.log(data);
                 resolve(data);
             },
             error: function () {

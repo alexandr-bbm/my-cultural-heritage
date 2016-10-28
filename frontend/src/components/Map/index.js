@@ -55,7 +55,9 @@ class Map extends React.Component {
             return nextProps.objects
         }
         return nextProps.objects.filter((elem)=> {
-            return (elem.tags.indexOf(nextProps.filter) != -1)
+            console.log(elem.tags);
+            console.log(nextProps.filter.toLowerCase());
+            return (elem.tags.indexOf(nextProps.filter.toLowerCase()) != -1)
         })
     };
 
