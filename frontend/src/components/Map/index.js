@@ -12,6 +12,7 @@ class Map extends React.Component {
             zoom: 7
         });
     }
+
     render(objects) {
         return <div id="id"></div>
     }
