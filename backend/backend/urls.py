@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from rest_framework import routers
 
-from heritage.views import HeritageObjectViewSet
+from heritage.views import HeritageObjectViewSet, RatingViewSet
 
 router = routers.SimpleRouter()
 router.register(r'objects', HeritageObjectViewSet)
+router.register(r'rating', RatingViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
+    url(r'^', TemplateView.as_view(template_name='index.html'))
 ]
