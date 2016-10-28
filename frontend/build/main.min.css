@@ -268,7 +268,11 @@
   margin: auto;
   height: 200px;
 }
-.rating {
+.ratings {
+  margin-top: 20px;
+}
+
+.ratings__item {
   width: 30px;
   height: 30px;
   display: inline-block;
@@ -276,6 +280,7 @@
   margin-right: 10px;
 }
 .object-view {
+  position: relative;
   max-width: 600px;
   margin: 20px auto;
 }
@@ -987,6 +992,10 @@ ul, ol {
   font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+}
+
+.no-margin {
+  margin: 0 !important;
 }
 
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLm1pbi5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/
