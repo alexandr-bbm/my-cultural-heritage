@@ -9,21 +9,22 @@ import {cyan500} from 'material-ui/styles/colors';
 import './style.scss';
 import RatingApi from 'api/rating';
 import ObjectsApi from 'api/objects';
+import Storage from 'services/storage';
 
 class RatingEmpty extends Component {
-    render() {
+    render () {
         return (
             <div className="ratings__item">
-                <ToggleStarBorder color={cyan500}/>
+                <ToggleStarBorder color={cyan500} />
             </div>
         )
     }
 }
 class RatingFull extends Component {
-    render() {
+    render () {
         return (
             <div className="ratings__item">
-                <ToggleStar color={cyan500}/>
+                <ToggleStar color={cyan500} />
             </div>
         )
     }
@@ -32,52 +33,51 @@ class RatingFull extends Component {
 class RatingBlock extends Component {
 
     state = {
-        rated: false,
         rating: this.props.rating,
         votesCount: 5,
-
+        readonly: false,
     };
 
     componentDidMount () {
-        const { objectId }= this.props;
-        // RatingApi
-        //     .getById(objectId)
-        //     .then((res) => {
-        //         this.setState({
-        //             votesCount: '5',
-        //         })
-        //     })
+        if (Storage.isVoted(this.props.objectId)) {
+            this.setState({
+                readonly: true
+            })
+        }
     }
 
     onRatingChange = (rating) => {
-        const { objectId }= this.props;
+        const {objectId}= this.props;
         RatingApi
             .vote(objectId, rating)
             .then(ObjectsApi.getById.bind(null, objectId))
             .then((res) => {
+                Storage.addVoted(objectId);
                 this.setState({
-                    rated: true,
                     rating: res.rating,
-                    votesCount: this.state.votesCount + 1,
+                    readonly: true
                 })
             })
         ;
     };
 
-    render() {
-        const hint = this.state.rated ? 'Спасибо за вашу оценку!' : ' Оцените этот объект: ';
+    render () {
+        const hint = this.state.readonly ? 'Спасибо за вашу оценку!' : ' Оцените этот объект: ';
         return (
             <div className="ratings">
                 <div>{ hint }</div>
                 <Rating
-                    empty={<RatingEmpty/>}
-                    placeholder ={<RatingEmpty/>}
-                    full={<RatingFull/>}
+                    empty={<RatingEmpty />}
+                    placeholder={<RatingEmpty />}
+                    full={<RatingFull />}
                     onChange={this.onRatingChange}
-                    initialRate={this.state.rating}
+                    initialRate={this.state.rating.avg}
+                    readonly={this.state.readonly}
                 />
-                { this.state.rating }
-                ({ this.state.votesCount })
+                &nbsp;
+                { this.state.rating.avg.toFixed(1) }
+                &nbsp;
+                ({ this.state.rating.count })
             </div>
         );
     }
