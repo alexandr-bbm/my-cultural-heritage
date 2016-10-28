@@ -46,6 +46,7 @@ module.exports = {
                     'css-loader!postcss!'
                 )
             },
+            { test: /\.json$/, loader: 'json' },
         ]
     },
 
@@ -57,7 +58,7 @@ module.exports = {
 
     resolve: {
         modulesDirectories: ['src', 'node_modules'],
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.json']
     },
 
     devtool: 'inline-source-map',

@@ -1,8 +1,14 @@
 import React, {PropTypes} from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import ObjectView from 'components/Object';
 
-export default class ModalObject extends React.Component {
+const customContentStyle = {
+    width: '100%',
+    maxWidth: 'none',
+};
+
+class ModalObject extends React.Component {
 
     static propTypes = {
         open: PropTypes.bool.isRequired,
@@ -11,7 +17,7 @@ export default class ModalObject extends React.Component {
     };
 
     render () {
-        const {open, onClose} = this.props;
+        const {open, onClose, object} = this.props;
         const actions = [
             <FlatButton
                 label="Закрыть"
@@ -24,11 +30,13 @@ export default class ModalObject extends React.Component {
                 modal={false}
                 open={open}
                 onRequestClose={onClose}
-                contentStyle={{'width': '600px'}}
-                title="Are you sure?"
+                contentStyle={customContentStyle}
+                title={object.title}
+                autoScrollBodyContent={true}
             >
-                The action will delete the mate.
+                <ObjectView object={object} />
             </Dialog>
         )
     }
 }
+export default ModalObject;
