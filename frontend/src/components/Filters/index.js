@@ -9,6 +9,7 @@ class Filters extends React.Component {
     render() {
         return (
             <Tabs>
+                <Tab filter="all" label="Все" onActive={this.handleActive}/>
                 <Tab filter="wood" label="Деревянное зодчество" onActive={this.handleActive}/>
                 <Tab filter="monuments" label="Памятники" onActive={this.handleActive}/>
                 <Tab filter="temples" label="Монастыри и храмы" onActive={this.handleActive}/>

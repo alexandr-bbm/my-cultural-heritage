@@ -7,15 +7,17 @@ class Map extends React.Component {
     componentDidMount() {
         this.initMap();
     }
-
     initMap() {
         ymaps.ready(()=> {
             this.myMap = new ymaps.Map('map', {
-                center: [56.4894541, 84.8685494],
-                zoom: 14,
+                center: [56.491539, 84.988026],
+                zoom: 13,
                 controls: ['zoomControl'],
+                maxZoom:13
             });
-            this.renderObjects();
+            if (this.props.objects.length) {
+                this.renderObjects();
+            }
         });
     }
 
@@ -61,8 +63,8 @@ class Map extends React.Component {
         });
         let objects = this.props.objects,
             geoObjects = [];
-
         for (var i = 0, len = objects.length; i < len; i++) {
+            console.log(objects[i]);
             let id = objects[i].id;
             geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
             // //hover
@@ -74,13 +76,13 @@ class Map extends React.Component {
                 this.handleMarkerClick(id);
             });
         }
-
         clusterer.add(geoObjects);
         this.myMap.geoObjects.add(clusterer);
+    }
 
-        this.myMap.setBounds(clusterer.getBounds(), {
-            checkZoomRange: true
-        });
+    componentWillUpdate() {
+        this.myMap.destroy();
+        this.initMap();
     }
 
     render() {
