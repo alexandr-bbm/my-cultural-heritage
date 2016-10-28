@@ -14,6 +14,7 @@
     "material-ui": "^0.16.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-rating": "^0.6.1",
     "react-slick": "^0.14.5",
     "react-tap-event-plugin": "^1.0.0",
     "reset-css": "^2.0.2011012603",
