@@ -58,13 +58,14 @@ export default class App extends React.Component {
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
 
+                <Map objects={this.state.objects}/>
+
                 <ModalObject
                     open={objectModal.open}
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
                 />
 
-                <Map objects={this.state.objects}/>
                 <RaisedButton
                     label="Тест для модалки"
                     data-id={1}
