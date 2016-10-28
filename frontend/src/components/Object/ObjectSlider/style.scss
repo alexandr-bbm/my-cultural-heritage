@@ -1,7 +1,13 @@
 .object-slider {
-    margin: 0 auto;
-    padding: 40px;
-    width: 80%;
-    color: #333;
-    height: 300px;
+    &__image {
+        border: 5px solid #FFF;
+        display: block;
+        margin: auto;
+        height: 200px
+    }
+
+    &__image-container {
+
+    }
+
 }

@@ -1,4 +1,8 @@
 .object-view {
     max-width: 600px;
     margin: 20px auto;
+
+    &__description {
+        margin-top: 50px;
+    }
 }
