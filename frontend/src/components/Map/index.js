@@ -65,7 +65,7 @@ class Map extends React.Component {
                         preset: 'islands#violetIcon'
                     };
                 },
-                points = [[56.479658, 85.070571], [56.489658, 85.090571]],
+                points = [this.props.objects],
                 geoObjects = [];
 
             /**
@@ -74,12 +74,16 @@ class Map extends React.Component {
              */
             for(var i = 0, len = points.length; i < len; i++) {
                 geoObjects[i] = new ymaps.Placemark(points[i], getPointData(i), getPointOptions());
+
+                //hover
                 geoObjects[i].events.add('mouseenter', (e) => {
-                    console.log('hover');
-                    let position = [56.489658, 46.49];
-                    console.log(position);
                     let balloon = e.get('target').balloon;
-                    balloon.open(position);
+                    balloon.open();
+                });
+                //click
+                geoObjects[i].events.add('click', (e) => {
+                    let balloon = e.get('target').balloon;
+                    this.handleMarkerClick();
                 });
             }
 
@@ -106,6 +110,10 @@ class Map extends React.Component {
                 checkZoomRange: true
             });
         });
+    }
+
+    handleMarkerClick() {
+        console.log('click');
     }
     renderObjects() {
 

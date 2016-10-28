@@ -1,7 +1,7 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
-import Map from '../components/Map';
+import Map from 'components/Map';
 
 injectTapEventPlugin();
 
@@ -29,7 +29,7 @@ export default class App extends React.Component {
                     title="Мое культурное наследие"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-                <Map />
+                <Map objects={this.state.object}/>
             </div>
         )
     }
