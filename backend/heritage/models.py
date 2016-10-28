@@ -18,6 +18,9 @@ class HeritageObject(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
     @property
     def rating(self):
         return self.rating_set.aggregate(avg=models.Avg('score')).get('avg', 0)
