@@ -4,3 +4,13 @@
 .no-margin {
     margin: 0 !important;
 }
+
+.modal>div>div {
+    transform: translate(0,0) !important;
+
+    >div {
+        >div:nth-child(2) {
+            max-height: calc(100vh - 240px) !important;
+        }
+    }
+}
