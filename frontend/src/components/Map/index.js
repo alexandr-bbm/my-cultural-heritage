@@ -11,11 +11,9 @@ class Map extends React.Component {
     initMap() {
         ymaps.ready(()=> {
             this.myMap = new ymaps.Map('map', {
-                center: [56.479658, 85.070571],
+                center: [56.4894541, 84.8685494],
                 zoom: 14,
-                behaviors: ['default', 'scrollZoom']
-            }, {
-                searchControlProvider: 'yandex#search'
+                controls: ['zoomControl'],
             });
             this.renderObjects();
         });
@@ -71,10 +69,10 @@ class Map extends React.Component {
         for (var i = 0, len = objects.length; i < len; i++) {
             let id = objects[i].id;
             geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
-            //hover
-            geoObjects[i].events.add('mouseenter', (e) => {
-                this.handleObjectHover(e);
-            });
+            // //hover
+            // geoObjects[i].events.add('mouseenter', (e) => {
+            //     this.handleObjectHover(e);
+            // });
             //click
             geoObjects[i].events.add('click', (e) => {
                 this.handleMarkerClick(id);
@@ -87,6 +85,11 @@ class Map extends React.Component {
          */
         clusterer.add(geoObjects);
         this.myMap.geoObjects.add(clusterer);
+
+
+        this.myMap.setBounds(clusterer.getBounds(), {
+            checkZoomRange: true
+        });
     }
 
     render(objects) {

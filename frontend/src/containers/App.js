@@ -6,6 +6,7 @@ import ModalObject from 'components/Modal';
 import Map from 'components/Map';
 import MOCK_OBJECTS from 'api/mock';
 import ObjectView from 'components/Object';
+import Filters from 'components/Filters';
 
 injectTapEventPlugin();
 
@@ -49,6 +50,12 @@ export default class App extends React.Component {
         })
     };
 
+    onFilter = (filter) => {
+        this.setState({
+            filter : filter
+        })
+    };
+
     render () {
         const { objectModal } = this.state;
         return (
@@ -58,7 +65,11 @@ export default class App extends React.Component {
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
 
-                <Map objects={this.state.objects}/>
+                <Filters onFilter={this.onFilter}/>
+
+                <Map
+                    filter = {this.state.filter}
+                    objects={this.state.objects}/>
 
                 <ModalObject
                     open={objectModal.open}
