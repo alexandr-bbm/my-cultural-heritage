@@ -3,6 +3,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import ModalObject from 'components/Modal/Object';
+import Map from 'components/Map';
 
 injectTapEventPlugin();
 
@@ -38,20 +39,24 @@ export default class App extends React.Component {
     };
 
     handleOpenObject = (e) => {
-        const targetId = e.target.getAttribute('data-id');
-        const targetObject = this.allObjects.filter((obj) => targetId === obj.id);
-        this.setState({
-            objectModal: {
-                open: true,
-                object: targetObject
-            }
-        })
+        const targetId = e.currentTarget.getAttribute('data-id');
+        const targetObject = this.allObjects.filter((obj) => targetId === obj.id)[0];
+        if (targetObject) {
+            this.setState({
+                objectModal: {
+                    open: true,
+                    object: targetObject
+                }
+            })
+        }
     };
 
     handleCloseObject = () => {
         this.setState({
-            open: true,
-            object: {}
+            objectModal: {
+                open: false,
+                object: {}
+            }
         })
     };
 
