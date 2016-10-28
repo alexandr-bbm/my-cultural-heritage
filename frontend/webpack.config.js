@@ -8,7 +8,6 @@ require('es6-promise').polyfill();
 
 module.exports = {
     entry: './src/index.js',
-
     output: {
         path: path.join(__dirname, './build/'),
         filename: '[name].min.js'
