@@ -9,7 +9,7 @@ export default class ObjectSlider extends React.Component {
     render () {
         var settings = {
             dots: true,
-            infinite: true,
+            infinite: false,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -19,7 +19,6 @@ export default class ObjectSlider extends React.Component {
         };
         const images = [
             'http://www.tomsk.ru09.ru/foto/albums/tomsk/userpics/16375/normal_img_2841.jpg',
-            'http://sobory.ru/pic/34550/34591bb.jpg',
         ];
         return (
             <div className="object-slider">

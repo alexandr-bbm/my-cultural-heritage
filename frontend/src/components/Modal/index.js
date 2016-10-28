@@ -31,7 +31,11 @@ class ModalObject extends React.Component {
         ];
         const modalHeader = <div>
             <h3 className="no-margin">{object.title}</h3>
-            <RatingBlock onRatingChange={this.props.onRatingChange} />
+            {object && <RatingBlock
+                onRatingChange={this.props.onRatingChange}
+                objectId={object.id}
+                rating={object.rating}
+            />}
         </div>;
         return (
             <Dialog

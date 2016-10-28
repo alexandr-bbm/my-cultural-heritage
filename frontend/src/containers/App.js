@@ -14,14 +14,16 @@ export default class App extends React.Component {
         getObjects().then((response)=> {
             this.allObjects = response;
             this.setState({
+                loading : false,
                 objects: this.allObjects,
             })
         });
     }
 
     state = {
-        filter: '',
+        filter: 'all',
         objects: [],
+        loading: true,
         objectModal: {
             open: false,
             object: {},
@@ -68,6 +70,7 @@ export default class App extends React.Component {
                 <Filters onFilter={this.onFilter}/>
 
                 <Map
+                    loading={this.state.loading}
                     onObjectClick={this.handleOpenObject}
                     filter={this.state.filter}
                     objects={this.state.objects}
