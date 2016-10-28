@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import ObjectSlider from './ObjectSlider';
+import RatingBlock from 'components/Rating';
 
 import './style.scss';
 
@@ -20,6 +21,7 @@ export default class ObjectView extends React.Component {
         return (
             <div className="object-view">
                 <div>
+                    <RatingBlock onRatingChange={this.props.onRatingChange} />
                     <ObjectSlider />
                 </div>
                 <div className="object-view__description">
