@@ -4,6 +4,7 @@ import random
 import string
 
 from django.db import models
+from taggit.managers import TaggableManager
 
 
 class HeritageObject(models.Model):
@@ -14,6 +15,8 @@ class HeritageObject(models.Model):
     lat = models.TextField(blank=True)
     lon = models.TextField(blank=True)
     description = models.TextField(blank=True)
+
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.name
