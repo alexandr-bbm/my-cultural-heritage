@@ -1,26 +1,21 @@
-import React, {
-    PropTypes,
-} from 'react';
+import React from 'react';
+import {Tabs, Tab} from 'material-ui/Tabs';
 
-const Filters = (props) => {
-    return (
-        <div>
-            <header class="header">
-                <div class="wrapper">
-                    <div class="header__title">Моё культурное наследие</div>
-                    <div class="header__tabs tabs">
-                        <div class="tabs__item">Деревянное зодчество</div>
-                        <div class="tabs__item">Памятники</div>
-                        <div class="tabs__item">Монастыри и храмы</div>
-                        <div class="tabs__item">Учебные заведения</div>
-                    </div>
-                </div>
-            </header>
-        </div>
-    );
-};
-
-index.propTypes = {};
-index.defaultProps = {};
+class Filters extends React.Component {
+    handleActive = (tab)=> {
+        var filter = tab.props.filter;
+        this.props.onFilter(filter)
+    }
+    render() {
+        return (
+            <Tabs>
+                <Tab filter="wood" label="Деревянное зодчество" onActive={this.handleActive}/>
+                <Tab filter="monuments" label="Памятники" onActive={this.handleActive}/>
+                <Tab filter="temples" label="Монастыри и храмы" onActive={this.handleActive}/>
+                <Tab filter="study" label="Учебные заведения" onActive={this.handleActive}/>
+            </Tabs>
+        )
+    }
+}
 
 export default Filters;
