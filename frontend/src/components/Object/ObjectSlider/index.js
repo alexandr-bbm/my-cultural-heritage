@@ -17,18 +17,20 @@ export default class ObjectSlider extends React.Component {
             arrows: true,
             variableWidth: false
         };
-        const images = [
-            'http://www.tomsk.ru09.ru/foto/albums/tomsk/userpics/16375/normal_img_2841.jpg',
-        ];
+        const {photos} = this.props;
         return (
             <div className="object-slider">
-                <Slider {...settings}>
-                    {images.map((url) => (
-                        <div className="object-slider__image-container">
-                            <img className="object-slider__image" src={url} alt="" />
-                        </div>
-                    ))}
-                </Slider>
+                {!photos.length && 'Фотографий еще не добавлено'}
+                {!!photos.length &&
+                    <Slider {...settings}>
+                        {photos.map((url, key) => (
+                            <div className="object-slider__image-container" key={key}>
+                                {/* todo delete on deployment */}
+                                <img className="object-slider__image" src={url} alt="" />
+                            </div>
+                        ))}
+                    </Slider>
+                }
             </div>
         );
     }
