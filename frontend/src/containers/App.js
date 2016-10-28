@@ -21,16 +21,15 @@ export default class App extends React.Component {
 
     state = {
         filter: '',
-        objects : [],
+        objects: [],
         objectModal: {
             open: false,
             object: {},
         }
     };
 
-    handleOpenObject = (e) => {
-        const targetId = e.currentTarget.getAttribute('data-id');
-        const targetObject = this.allObjects.filter((obj) => targetId == obj.id)[0];
+    handleOpenObject = (id) => {
+        const targetObject = this.allObjects.filter((obj) => id == obj.id)[0];
         if (targetObject) {
             this.setState({
                 objectModal: {
@@ -52,12 +51,12 @@ export default class App extends React.Component {
 
     onFilter = (filter) => {
         this.setState({
-            filter : filter
+            filter: filter
         })
     };
 
-    render () {
-        const { objectModal } = this.state;
+    render() {
+        const {objectModal} = this.state;
         return (
             <div className="app">
                 <AppBar
@@ -68,7 +67,8 @@ export default class App extends React.Component {
                 <Filters onFilter={this.onFilter}/>
 
                 <Map
-                    filter = {this.state.filter}
+                    onObjectClick={this.handleOpenObject}
+                    filter={this.state.filter}
                     objects={this.state.objects}/>
 
                 <ModalObject
@@ -82,6 +82,7 @@ export default class App extends React.Component {
                     data-id={1}
                     onTouchTap={this.handleOpenObject}
                 />
+                <ObjectView object={MOCK_OBJECTS[0]}/>
             </div>
         )
     }

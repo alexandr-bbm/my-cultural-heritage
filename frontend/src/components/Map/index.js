@@ -20,47 +20,43 @@ class Map extends React.Component {
     }
 
     handleMarkerClick(id) {
-        console.log(id);
+        this.props.onObjectClick(id);
     }
 
     handleObjectHover(e) {
         console.log(e.get('target'));
     }
 
-    getPointData() {
-        /**
-         * Функция возвращает объект, содержащий данные метки.
-         * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
-         * Поле balloonContentBody - источник данных для контента балуна.
-         * Оба поля поддерживают HTML-разметку.
-         * Список полей данных, которые используют стандартные макеты содержимого иконки метки
-         * и балуна геообъектов, можно посмотреть в документации.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-         */
-        return {
-            balloonContentBody: '',
-            clusterCaption: '<p data-tip="hello world">Tooltip</p>'
-        };
-    }
+        getPointData() {
+            /**
+             * Функция возвращает объект, содержащий данные метки.
+             * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
+             * Поле balloonContentBody - источник данных для контента балуна.
+             * Оба поля поддерживают HTML-разметку.
+             * Список полей данных, которые используют стандартные макеты содержимого иконки метки
+             * и балуна геообъектов, можно посмотреть в документации.
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
+             */
+            return {
+                balloonContentBody: '',
+                clusterCaption: '<p data-tip="hello world">Tooltip</p>'
+            };
+        }
 
     getPointOptions() {
         return {
             preset: 'islands#lightBlueCircleDotIcon',
-            iconImageSize : '200'
+            iconImageSize: '200'
         };
     }
 
     renderObjects() {
         let clusterer = new ymaps.Clusterer({
-            /**
-             * Через кластеризатор можно указать только стили кластеров,
-             * стили для меток нужно назначать каждой метке отдельно.
-             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage.xml
-             */
             preset: 'islands#invertedBrownClusterIcons',
             groupByCoordinates: false,
             clusterDisableClickZoom: true,
             clusterHideIconOnBalloonOpen: false,
+            openBalloonOnClick: false,
             geoObjectHideIconOnBalloonOpen: false
         });
         let objects = this.props.objects,
@@ -79,20 +75,15 @@ class Map extends React.Component {
             });
         }
 
-        /**
-         * В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Clusterer.xml#add
-         */
         clusterer.add(geoObjects);
         this.myMap.geoObjects.add(clusterer);
-
 
         this.myMap.setBounds(clusterer.getBounds(), {
             checkZoomRange: true
         });
     }
 
-    render(objects) {
+    render() {
         return <div className="map" id="map"></div>
     }
 }
