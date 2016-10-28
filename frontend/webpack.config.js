@@ -8,7 +8,6 @@ require('es6-promise').polyfill();
 
 module.exports = {
     entry: './src/index.js',
-
     output: {
         path: path.join(__dirname, './build/'),
         filename: '[name].min.js'
@@ -37,8 +36,9 @@ module.exports = {
                     'css-loader!postcss!sass-loader?outputStyle=expanded'
                 )
             },
-            { test: /\.(ttf|eot|woff|svg)/,
-                loader: 'file-loader'
+            {
+                test: /\.(ttf|eot|woff|svg|png|jpg|gif)/,
+                loader: 'url?limit=8000&name=./assets/[name].[ext]'
             },
             {
                 test: /\.css$/,
@@ -47,6 +47,7 @@ module.exports = {
                     'css-loader!postcss!'
                 )
             },
+            { test: /\.json$/, loader: 'json' },
         ]
     },
 
@@ -57,7 +58,8 @@ module.exports = {
     ],
 
     resolve: {
-        modulesDirectories: ['src', 'node_modules']
+        modulesDirectories: ['src', 'node_modules'],
+        extensions: ['', '.js', '.jsx', '.json']
     },
 
     devtool: 'inline-source-map',
