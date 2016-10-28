@@ -10,17 +10,24 @@ export default class ObjectSlider extends React.Component {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            centerMode: true,
+            arrows: true
         };
+        const images = [
+            'http://www.tomsk.ru09.ru/foto/albums/tomsk/userpics/16375/normal_img_2841.jpg',
+            'http://sobory.ru/pic/34550/34591bb.jpg',
+        ];
         return (
-            <Slider {...settings}>
-                <div><h3>1</h3></div>
-                <div><h3>2</h3></div>
-                <div><h3>3</h3></div>
-                <div><h3>4</h3></div>
-                <div><h3>5</h3></div>
-                <div><h3>6</h3></div>
-            </Slider>
+            <div className="object-slider">
+                <Slider {...settings}>
+                    {images.map((url) => (
+                        <div>
+                            <img src={url} alt="" />
+                        </div>
+                    ))}
+                </Slider>
+            </div>
         );
     }
 }
