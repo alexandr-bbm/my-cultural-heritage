@@ -1,0 +1,12 @@
+.tabs {
+    @media (max-width:1024px) {
+        display: none;
+    }
+}
+
+.mobile-tabs {
+    display: block;
+    @media (min-width:1023px) {
+        display: none;
+    }
+}

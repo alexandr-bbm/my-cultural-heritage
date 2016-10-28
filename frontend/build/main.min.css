@@ -304,6 +304,21 @@
   top: 50%;
   margin-top: -25px;
 }
+@media (max-width: 1024px) {
+  .tabs {
+    display: none;
+  }
+}
+
+.mobile-tabs {
+  display: block;
+}
+
+@media (min-width: 1023px) {
+  .mobile-tabs {
+    display: none;
+  }
+}
 @charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
