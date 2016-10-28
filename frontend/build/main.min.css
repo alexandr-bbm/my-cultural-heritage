@@ -262,7 +262,13 @@
   color: black;
   opacity: 0.75;
 }
-.rating {
+.ratings {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ratings__item {
   width: 30px;
   height: 30px;
   display: inline-block;
@@ -270,6 +276,7 @@
   margin-right: 10px;
 }
 .object-view {
+  position: relative;
   max-width: 600px;
   margin: 20px auto;
 }

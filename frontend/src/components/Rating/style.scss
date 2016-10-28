@@ -1,7 +1,12 @@
-.rating {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
+.ratings {
+    position: absolute;
+    right:0;
+    top:0;
+    &__item {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+    }
 }
