@@ -62,7 +62,7 @@ export default class App extends React.Component {
 
                 <AppBar
                     title="Мое культурное наследие | Томск"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    iconElementLeft={<span></span>}
                 />
 
                 <Filters onFilter={this.onFilter}/>
@@ -70,7 +70,8 @@ export default class App extends React.Component {
                 <Map
                     onObjectClick={this.handleOpenObject}
                     filter={this.state.filter}
-                    objects={this.state.objects}/>
+                    objects={this.state.objects}
+                />
 
                 <ModalObject
                     open={objectModal.open}
