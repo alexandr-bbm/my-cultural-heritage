@@ -5,6 +5,11 @@
 }
 
 .mobile-tabs {
+    position: absolute;
+    top:64px;
+    width:100%;
+    right:0;
+    left:0;
     display: block;
     @media (min-width:1023px) {
         display: none;

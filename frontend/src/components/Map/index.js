@@ -8,7 +8,7 @@ class Map extends React.Component {
     initMap(nextProps) {
         ymaps.ready(()=> {
             this.myMap = new ymaps.Map('map', {
-                center: [56.491539, 84.988026],
+                center: [56.478639, 84.949383],
                 zoom: 13,
                 maxZoom: 14,
                 controls: ['zoomControl']
@@ -41,8 +41,8 @@ class Map extends React.Component {
     };
 
     renderObjects(nextProps) {
-        let clusterer = new ymaps.Clusterer({
-            preset: 'islands#invertedGrayClusterIcons',
+        this.clusterer = new ymaps.Clusterer({
+            preset: 'islands#invertedBlackClusterIcons',
             groupByCoordinates: false,
             clusterDisableClickZoom: true,
             clusterHideIconOnBalloonOpen: false,
@@ -59,13 +59,15 @@ class Map extends React.Component {
                 this.handleMarkerClick(id);
             });
         }
-        clusterer.add(geoObjects);
-        this.myMap.geoObjects.add(clusterer);
+        this.clusterer.add(geoObjects);
+        this.myMap.geoObjects.add(this.clusterer);
     }
 
     componentWillUpdate(nextProps) {
         if (this.myMap) {
-            this.myMap.destroy();
+            this.myMap.geoObjects.removeAll();
+            this.renderObjects(nextProps);
+            return;
         }
         this.initMap(nextProps);
     }

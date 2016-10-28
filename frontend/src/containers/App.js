@@ -75,12 +75,12 @@ export default class App extends React.Component {
                     filter={this.state.filter}
                     objects={this.state.objects}
                 />
-
                 <ModalObject
                     open={objectModal.open}
                     onClose={this.handleCloseObject}
                     object={objectModal.object}
                 />
+
             </div>
         )
     }
