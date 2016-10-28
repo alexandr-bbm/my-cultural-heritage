@@ -64,8 +64,8 @@ class Map extends React.Component {
         });
         let objects = this.props.objects,
             geoObjects = [];
+        console.log(objects);
         for (var i = 0, len = objects.length; i < len; i++) {
-            console.log(objects[i]);
             let id = objects[i].id;
             geoObjects[i] = new ymaps.Placemark(objects[i].coords, this.getPointData(), this.getPointOptions());
             // //hover
