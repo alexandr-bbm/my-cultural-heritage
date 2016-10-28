@@ -26,7 +26,7 @@ class Map extends React.Component {
     getPointOptions() {
         return {
             iconLayout: 'default#image',
-            iconImageHref: 'build/assets/marker.svg',
+            iconImageHref: 'assets/marker.svg',
             iconImageSize: [30, 30]
         };
     }
