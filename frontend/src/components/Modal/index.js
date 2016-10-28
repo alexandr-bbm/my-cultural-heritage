@@ -33,6 +33,7 @@ class ModalObject extends React.Component {
                 contentStyle={customContentStyle}
                 title={object.title}
                 autoScrollBodyContent={true}
+                bodyStyle={{ overflowY: 'hidden'}}
             >
                 <ObjectView object={object} />
             </Dialog>

@@ -71,7 +71,6 @@ export default class App extends React.Component {
                     data-id={1}
                     onTouchTap={this.handleOpenObject}
                 />
-                <ObjectView object={MOCK_OBJECTS[0]} />
             </div>
         )
     }
