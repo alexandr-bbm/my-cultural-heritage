@@ -7,7 +7,7 @@ from heritage.serializers import HeritageObjectSerializer, RatingSerializer
 
 class HeritageObjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = HeritageObject.objects.exclude(lat='').annotate(
-        avg=Avg('rating__score'), count=Count('rating')).prefetch_related('photos')
+        avg=Avg('rating__score'), count=Count('rating')).prefetch_related('photos', 'tagged_items__tag')
     serializer_class = HeritageObjectSerializer
 
 
