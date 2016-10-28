@@ -23,7 +23,7 @@ export default class ObjectView extends React.Component {
         this.addProposeToString = (str) => {
             return (
                 <span className="mdl-typography--body-1">
-                    {str} <a href={this.proposeInfoHref}>Предложить информацию</a>
+                    {str} <a target="_blank" href={this.proposeInfoHref}>Предложить информацию</a>
                 </span>
             )
         }

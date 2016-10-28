@@ -30,6 +30,8 @@ class ModalObject extends React.Component {
             <RaisedButton
                 label="Я знаю больше"
                 href={getProposeHref(object)}
+                target="_blank"
+                primary={true}
                 style={{marginRight : 10}}/>,
             <FlatButton
                 label="Закрыть"

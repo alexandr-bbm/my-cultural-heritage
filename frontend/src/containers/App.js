@@ -5,6 +5,7 @@ import ModalObject from 'components/Modal';
 import Map from 'components/Map';
 import Filters from 'components/Filters';
 import getObjects from 'api/getObjects';
+import ObjectApi from 'api/objects';
 
 injectTapEventPlugin();
 
@@ -31,15 +32,15 @@ export default class App extends React.Component {
     };
 
     handleOpenObject = (id) => {
-        const targetObject = this.allObjects.filter((obj) => id == obj.id)[0];
-        if (targetObject) {
-            this.setState({
-                objectModal: {
-                    open: true,
-                    object: targetObject
-                }
-            })
-        }
+        ObjectApi.getById(id)
+            .then((object) => {
+                this.setState({
+                    objectModal: {
+                        open: true,
+                        object
+                    }
+                })
+            });
     };
 
     handleCloseObject = () => {
