@@ -28,8 +28,8 @@ export default class ObjectView extends React.Component {
                 </p>
                 <RaisedButton
                     label="Добавить описание"
-                    href="#"
-                    style={{margin : 10}}/>
+                    href={"mailto:headfire94work@gmail.com?subject=Описание для (" + object.id + ") " +object.title}
+                    style={{marginBottom : 10}}/>
                 <h4>Тэги</h4>
             </div>
         )
