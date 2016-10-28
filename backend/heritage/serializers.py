@@ -9,6 +9,7 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
     address = serializers.CharField(source='address_1')
     photos = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
+    rating =serializers.SerializerMethodField()
 
     class Meta:
         model = HeritageObject
@@ -22,6 +23,9 @@ class HeritageObjectSerializer(serializers.ModelSerializer):
 
     def get_tags(self, obj):
         return obj.tags.names()
+
+    def get_rating(self, obj):
+        return {'avg': obj.avg or 0, 'count': obj.count}
 
 
 class RatingSerializer(serializers.ModelSerializer):
