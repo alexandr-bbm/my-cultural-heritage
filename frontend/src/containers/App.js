@@ -7,16 +7,19 @@ import Map from 'components/Map';
 import MOCK_OBJECTS from 'api/mock';
 import ObjectView from 'components/Object';
 import Filters from 'components/Filters';
+import getObjects from 'api/getObjects';
 
 injectTapEventPlugin();
 
 export default class App extends React.Component {
 
     componentDidMount() {
-        this.allObjects = MOCK_OBJECTS;
-        this.setState({
-            objects: this.allObjects,
-        })
+        getObjects().then((response)=> {
+            this.allObjects = response.data;
+            this.setState({
+                objects: this.allObjects,
+            })
+        });
     }
 
     state = {
@@ -62,7 +65,7 @@ export default class App extends React.Component {
 
                 <AppBar
                     title="Мое культурное наследие | Томск"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    iconElementLeft={<span></span>}
                 />
 
                 <Filters onFilter={this.onFilter}/>
@@ -70,7 +73,8 @@ export default class App extends React.Component {
                 <Map
                     onObjectClick={this.handleOpenObject}
                     filter={this.state.filter}
-                    objects={this.state.objects}/>
+                    objects={this.state.objects}
+                />
 
                 <ModalObject
                     open={objectModal.open}

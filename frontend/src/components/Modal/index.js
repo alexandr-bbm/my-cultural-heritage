@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import ObjectView from 'components/Object';
+import RatingBlock from 'components/Rating';
 
 const customContentStyle = {
     width: '100%',
@@ -28,6 +29,10 @@ class ModalObject extends React.Component {
                 onTouchTap={onClose}
             />
         ];
+        const modalHeader = <div>
+            <h3 className="no-margin">{object.title}</h3>
+            <RatingBlock onRatingChange={this.props.onRatingChange} />
+        </div>;
         return (
             <Dialog
                 actions={actions}
@@ -35,9 +40,8 @@ class ModalObject extends React.Component {
                 open={open}
                 onRequestClose={onClose}
                 contentStyle={customContentStyle}
-                title={object.title}
+                title={modalHeader}
                 autoScrollBodyContent={true}
-                bodyStyle={{ overflowY: 'hidden'}}
             >
                 <ObjectView object={object} />
             </Dialog>
