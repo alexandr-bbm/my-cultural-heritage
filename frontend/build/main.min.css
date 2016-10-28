@@ -292,6 +292,9 @@
 .object-view__title {
   margin-top: 50px;
 }
+.modal {
+  padding-top: 10px !important;
+}
 .map {
   width: 100%;
   height: calc(100vh - 112px);

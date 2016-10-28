@@ -5,10 +5,11 @@ import ObjectView from 'components/Object';
 import RatingBlock from 'components/Rating';
 import getProposeHref from 'services/proposeHref';
 import RaisedButton from 'material-ui/RaisedButton';
+import './style.scss';
 
 const customContentStyle = {
     width: '100%',
-    maxWidth: 'none',
+    maxWidth: '768px',
 };
 
 class ModalObject extends React.Component {
@@ -45,6 +46,7 @@ class ModalObject extends React.Component {
         </div>;
         return (
             <Dialog
+                className="modal"
                 actions={actions}
                 modal={false}
                 open={open}
