@@ -4,3 +4,4 @@ djangorestframework==3.5.1
 ipython==5.1.0
 Pillow==3.4.2
 requests==2.11.1
+whitenoise-3.2.2
