@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import ObjectSlider from './ObjectSlider';
 import Chip from 'material-ui/Chip';
-
 import RatingBlock from 'components/Rating';
 import RaisedButton from 'material-ui/RaisedButton';
 import './style.scss';
@@ -28,10 +27,7 @@ export default class ObjectView extends React.Component {
                 <p>
                     {object.description ? object.description : 'Описания еще не добавлено.'}
                 </p>
-                <RaisedButton
-                    label="Добавить описание"
-                    href={"mailto:headfire94work@gmail.com?subject=Описание для (" + object.id + ") " +object.title}
-                    style={{marginBottom : 10}}/>
+
                 <h4>Тэги</h4>
                 <div>
                     {object.tags.map((tag) => (
@@ -40,6 +36,10 @@ export default class ObjectView extends React.Component {
                         </Chip>
                     ))}
                 </div>
+                <RaisedButton
+                    label="Я знаю больше"
+                    href={"mailto:headfire94work@gmail.com?subject=Описание для (" + object.id + ") " +object.title}
+                    style={{marginBottom : 10}}/>
             </div>
         )
     }
