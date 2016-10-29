@@ -72,7 +72,7 @@ export default class App extends React.Component {
             <div className="app">
 
                 <AppBar
-                    title="Мое культурное наследие | Томск"
+                    title="Мое наследие | Все объекты культурного наследия г. Томска"
                     iconElementLeft={<span></span>}
                 />
 
