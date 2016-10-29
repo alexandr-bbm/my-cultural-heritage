@@ -15,7 +15,7 @@ export default class App extends React.Component {
         getObjects().then((response)=> {
             this.allObjects = response;
             this.setState({
-                loading : false,
+                loading: false,
                 objects: this.allObjects,
             })
         });
@@ -58,6 +58,14 @@ export default class App extends React.Component {
         })
     };
 
+    onTwit = (title) => {
+        window.open('https://twitter.com/intent/tweet?text='+title);
+    };
+
+    onVk = (title) => {
+        window.open('http://vk.com/share.php?url=http://heritage.pythonanywhere.com/&title='+title);
+    };
+
     render() {
         const {objectModal} = this.state;
         return (
@@ -69,7 +77,7 @@ export default class App extends React.Component {
                 />
 
                 <Filters
-                    filter = {this.state.filter}
+                    filter={this.state.filter}
                     onFilter={this.onFilter}/>
 
                 <Map
@@ -79,6 +87,8 @@ export default class App extends React.Component {
                     objects={this.state.objects}
                 />
                 <ModalObject
+                    onVk={this.onVk}
+                    onTwit={this.onTwit}
                     open={objectModal.open}
                     onClose={this.handleCloseObject}
                     object={objectModal.object}

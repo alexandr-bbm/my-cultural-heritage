@@ -295,6 +295,10 @@
 .modal {
   padding-top: 10px !important;
 }
+
+.modal__twitter {
+  padding-left: 0 !important;
+}
 .map {
   width: 100%;
   height: calc(100vh - 112px);
