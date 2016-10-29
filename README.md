@@ -1,7 +1,7 @@
 # My cultural heritage
 
 ## Description
-[Demo](heritage.pythonanywhere.com)
+[Demo](http://heritage.pythonanywhere.com/)
 
 [Presentation (in russian)](https://alexandr-bbm.github.io/my-cultural-heritage/AppPresentation.pdf)
 
