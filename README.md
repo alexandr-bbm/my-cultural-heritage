@@ -1,9 +1,11 @@
-# My cultural heritage 
-### Preview https://heritage.pythonanywhere.com
+# My cultural heritage
 
 ## Description
-Interacive map of Tomsk cultural heritages
+[Demo](heritage.pythonanywhere.com)
+[Presentation (in russian)](https://github.com/alexandr-bbm/my-cultural-heritage/AppPresentation.pdf)
 
-### Front-end 
+Interactive map of cultural heritage of a Tomsk region.
+
+### Front-end dev 
 `npm i`
 `npm run dev`
