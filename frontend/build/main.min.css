@@ -306,8 +306,10 @@
   }
 }
 
-.map__hint {
-  display: none;
+@media (max-width: 767px) {
+  .map__hint {
+    display: none !important;
+  }
 }
 
 @media (min-width: 768px) {
