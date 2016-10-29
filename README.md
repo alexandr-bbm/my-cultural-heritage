@@ -2,7 +2,8 @@
 
 ## Description
 [Demo](heritage.pythonanywhere.com)
-[Presentation (in russian)](https://github.com/alexandr-bbm/my-cultural-heritage/AppPresentation.pdf)
+
+[Presentation (in russian)](https://alexandr-bbm.github.io/my-cultural-heritage/AppPresentation.pdf)
 
 Interactive map of cultural heritage of a Tomsk region.
 
