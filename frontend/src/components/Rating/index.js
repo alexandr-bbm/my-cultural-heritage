@@ -69,7 +69,7 @@ class RatingBlock extends Component {
         }
         return (
             <div className="ratings">
-                <div>{ hint }</div>
+                <div className="mdl-typography--body-2">{ hint }</div>
                 <Rating
                     empty={<RatingEmpty />}
                     placeholder={<RatingEmpty />}
@@ -78,10 +78,12 @@ class RatingBlock extends Component {
                     initialRate={this.state.rating.avg}
                     readonly={this.state.readonly}
                 />
-                &nbsp;
-                { ratingAvg.toFixed(1) }
-                &nbsp;
-                ({ this.state.rating.count })
+                <span className="mdl-typography--body-1">
+                    &nbsp;
+                    { ratingAvg.toFixed(1) }
+                    &nbsp;
+                    ({ this.state.rating.count })
+                </span>
             </div>
         );
     }

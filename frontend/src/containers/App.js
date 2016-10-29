@@ -5,6 +5,7 @@ import ModalObject from 'components/Modal';
 import Map from 'components/Map';
 import Filters from 'components/Filters';
 import getObjects from 'api/getObjects';
+import ObjectApi from 'api/objects';
 
 injectTapEventPlugin();
 
@@ -14,7 +15,7 @@ export default class App extends React.Component {
         getObjects().then((response)=> {
             this.allObjects = response;
             this.setState({
-                loading : false,
+                loading: false,
                 objects: this.allObjects,
             })
         });
@@ -31,15 +32,15 @@ export default class App extends React.Component {
     };
 
     handleOpenObject = (id) => {
-        const targetObject = this.allObjects.filter((obj) => id == obj.id)[0];
-        if (targetObject) {
-            this.setState({
-                objectModal: {
-                    open: true,
-                    object: targetObject
-                }
-            })
-        }
+        ObjectApi.getById(id)
+            .then((object) => {
+                this.setState({
+                    objectModal: {
+                        open: true,
+                        object
+                    }
+                })
+            });
     };
 
     handleCloseObject = () => {
@@ -57,17 +58,27 @@ export default class App extends React.Component {
         })
     };
 
+    onTwit = (title) => {
+        window.open('https://twitter.com/intent/tweet?text='+title);
+    };
+
+    onVk = (title) => {
+        window.open('http://vk.com/share.php?url=http://heritage.pythonanywhere.com/&title='+title);
+    };
+
     render() {
         const {objectModal} = this.state;
         return (
             <div className="app">
 
                 <AppBar
-                    title="Мое культурное наследие | Томск"
+                    title="Мое наследие | Все объекты культурного наследия г. Томска"
                     iconElementLeft={<span></span>}
                 />
 
-                <Filters onFilter={this.onFilter}/>
+                <Filters
+                    filter={this.state.filter}
+                    onFilter={this.onFilter}/>
 
                 <Map
                     loading={this.state.loading}
@@ -76,6 +87,8 @@ export default class App extends React.Component {
                     objects={this.state.objects}
                 />
                 <ModalObject
+                    onVk={this.onVk}
+                    onTwit={this.onTwit}
                     open={objectModal.open}
                     onClose={this.handleCloseObject}
                     object={objectModal.object}

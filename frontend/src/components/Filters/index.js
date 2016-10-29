@@ -40,7 +40,7 @@ class Filters extends React.Component {
                     />
                     <CardText expandable={true}>
                         <div >
-                            <RadioButtonGroup name="group" defaultSelected="all" onChange={this.handleRadioChange}>
+                            <RadioButtonGroup name="group" defaultSelected={this.props.filter} onChange={this.handleRadioChange}>
                                 <RadioButton
                                     value="all"
                                     label="Все"

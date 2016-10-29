@@ -23,7 +23,7 @@ export default class ObjectView extends React.Component {
         this.addProposeToString = (str) => {
             return (
                 <span className="mdl-typography--body-1">
-                    {str} <a href={this.proposeInfoHref}>Предложить информацию</a>
+                    {str} <a target="_blank" href={this.proposeInfoHref}>Предложить информацию</a>
                 </span>
             )
         }
@@ -33,17 +33,18 @@ export default class ObjectView extends React.Component {
         const { object } = this.props;
         return (
             <div className="object-view">
-                <h4>Галлерея</h4>
+                <h5>{object.title}</h5>
+                <h5>Галлерея</h5>
                 <ObjectSlider
                     photos={object.photos}
                     addProposeToString={this.addProposeToString}
                 />
-                <h4 className="object-view__title">Описание объекта</h4>
+                <h5 className="object-view__title">Описание объекта</h5>
                 <p>
                     {object.description ? object.description : this.addProposeToString('Описания еще не добавлено.')}
                 </p>
 
-                <h4>Тэги</h4>
+                <h5>Тэги</h5>
                 <div>
                     {!!object.tags.length && object.tags.map((tag) => (
                         <Chip style={{margin: 4}} >

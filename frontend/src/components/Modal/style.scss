@@ -1,3 +1,35 @@
 .modal {
-    padding-top: 10px !important
+    padding-top: 10px !important;
+
+    &__twitter {
+        padding-left: 0 !important;
+    }
+}
+
+.modal {
+    padding: 0 !important;
+}
+
+.modal > div:first-child {
+    height: 100%;
+}
+
+/* Used as wrapper */
+.modal > div:first-child > .dialog-content {
+    transform: none !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+}
+
+.modal > div:first-child > .dialog-content > div:first-child {
+    height: 100vh !important;
+    box-sizing: border-box;
+}
+
+
+.modal > div:first-child > .dialog-content > div > .dialog-body {
+    height: calc( 100% - 254px) !important;
+    max-height:calc( 100% - 254px) !important;
 }
