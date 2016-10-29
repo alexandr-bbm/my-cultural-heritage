@@ -78,6 +78,8 @@ class ModalObject extends React.Component {
                 modal={false}
                 open={open}
                 onRequestClose={onClose}
+                contentClassName="dialog-content"
+                bodyClassName="dialog-body"
                 contentStyle={customContentStyle}
                 title={modalHeader}
                 autoScrollBodyContent={true}
