@@ -68,7 +68,9 @@ export default class App extends React.Component {
                     iconElementLeft={<span></span>}
                 />
 
-                <Filters onFilter={this.onFilter}/>
+                <Filters
+                    filter = {this.state.filter}
+                    onFilter={this.onFilter}/>
 
                 <Map
                     loading={this.state.loading}
