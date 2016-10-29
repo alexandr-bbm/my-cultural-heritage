@@ -24,7 +24,8 @@ class Map extends React.Component {
         this.props.onObjectClick(id);
     }
 
-    getPointOptions(title) {
+    getPointOptions(rating) {
+        var rating = rating.toFixed();
         let HintLayout = ymaps.templateLayoutFactory.createClass( "<div class='map__hint'>" +
             "<b>{{ properties.title }}</b>" +
             "</div>", {
@@ -48,10 +49,40 @@ class Map extends React.Component {
                 }
             }
         );
+
+        var iconSize;
+
+        switch (rating) {
+            case "0" :
+                iconSize = [20,20];
+                break;
+
+            case "1" :
+                iconSize = [20,20];
+                break;
+
+            case "2" :
+                iconSize = [30,30];
+                break;
+
+            case "3" :
+                iconSize = [30,30];
+                break;
+
+            case "4" :
+                iconSize = [40,40];
+                break;
+
+            case "5" :
+                iconSize = [50,50];
+                break;
+            default :
+                iconSize = [20,20];
+        }
         return {
             iconLayout: 'default#image',
             iconImageHref: 'assets/marker.svg',
-            iconImageSize: [30, 30],
+            iconImageSize: iconSize,
             balloonPanelMaxMapArea: 0,
             hintLayout: HintLayout
         };
@@ -81,7 +112,7 @@ class Map extends React.Component {
         return objects.map((elem)=> {
             let id = elem.id;
             var geoObjects = new ymaps.Placemark(elem.coords,
-                {title: elem.title}, this.getPointOptions());
+                {title: elem.title}, this.getPointOptions(elem.rating.avg));
             //click
             geoObjects.events.add('click', () => {
                 this.handleMarkerClick(id);
