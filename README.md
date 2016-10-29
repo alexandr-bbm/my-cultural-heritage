@@ -10,7 +10,7 @@ This application was developed during the Hackathon "Open data of Tomsk region" 
 
 [Presentation (in russian)](https://alexandr-bbm.github.io/my-cultural-heritage/AppPresentation.pdf)
 
-## Award
+## Hackathon Award (Best visualization of open data)
 ![alt text](https://alexandr-bbm.github.io/my-cultural-heritage/diplomTeamSm.jpg  "Our diploma")
 
 
