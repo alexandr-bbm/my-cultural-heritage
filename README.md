@@ -4,7 +4,7 @@
 
 Interactive map of cultural heritage objects of a Tomsk region. 
 
-This application was developed during the Hackathon "Open data of Tomsk region" by [me](/alexandr-bbm) , [Egor](/headfire94) and [Artem](/AduchiMergen)  
+This application was developed during the Hackathon "Open data of Tomsk region" by [me](https://github.com/alexandr-bbm) , [Egor](https://github.com/headfire94) and [Artem](https://github.com/AduchiMergen)  
 
 [Demo](http://heritage.pythonanywhere.com/)
 
