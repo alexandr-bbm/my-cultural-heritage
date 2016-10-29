@@ -5,6 +5,20 @@
     @media (max-width:1023px) {
         height: calc(100vh - 64px);
     }
+
+    &__hint {
+        display: none;
+        
+        @media (min-width:768px) {
+            display: block;
+            padding: 10px;
+            width: 300px;
+            color: white;
+            border-radius : 5px;
+            box-shadow : 3px 3px 3px rgba(0,0,0,0.5);
+            background: rgb(0, 188, 212);
+        }
+    }
 }
 
 .preloader {

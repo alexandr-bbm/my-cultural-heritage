@@ -25,12 +25,35 @@ class Map extends React.Component {
     }
 
     getPointOptions(title) {
+        let HintLayout = ymaps.templateLayoutFactory.createClass( "<div class='map__hint'>" +
+            "<b>{{ properties.title }}</b>" +
+            "</div>", {
+                // Определяем метод getShape, который
+                // будет возвращать размеры макета хинта.
+                // Это необходимо для того, чтобы хинт автоматически
+                // сдвигал позицию при выходе за пределы карты.
+                getShape: function () {
+                    var el = this.getElement(),
+                        result = null;
+                    if (el) {
+                        var firstChild = el.firstChild;
+                        result = new ymaps.shape.Rectangle(
+                            new ymaps.geometry.pixel.Rectangle([
+                                [0, 0],
+                                [firstChild.offsetWidth, firstChild.offsetHeight]
+                            ])
+                        );
+                    }
+                    return result;
+                }
+            }
+        );
         return {
             iconLayout: 'default#image',
             iconImageHref: 'assets/marker.svg',
             iconImageSize: [30, 30],
             balloonPanelMaxMapArea: 0,
-            title: title
+            hintLayout: HintLayout
         };
     }
 
@@ -58,7 +81,7 @@ class Map extends React.Component {
         return objects.map((elem)=> {
             let id = elem.id;
             var geoObjects = new ymaps.Placemark(elem.coords,
-                {hintContent: elem.title}, this.getPointOptions());
+                {title: elem.title}, this.getPointOptions());
             //click
             geoObjects.events.add('click', () => {
                 this.handleMarkerClick(id);
